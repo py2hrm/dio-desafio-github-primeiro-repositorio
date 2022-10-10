@@ -1,0 +1,59 @@
+git
+
+git config --list
+
+==create new repository
+echo "meu livro receitas" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/meunickname/nomedorepo.git
+git push -u origin master (vai pra master direto, normalmente nao é assim, vai pra 
+uma branch sua e de lá pede approval no pull request pra qa, testa, e depois que 
+estiver ok, pede approval no pull request pra master que é prod , e acerta ambiente 
+para go live)
+
++++++++++++++
+
+push an existing repsoitory from the command line
+
+git remote add origin https://github.com/nickname/reposname.git [aponta o repo da maq pra branch master no github]
+git push -u origin master [cria conteudo na branch master]
+
+....................
+
+pra ver pra qual repositorio o diretorio que tem .git está apontado :
+git remote -v
+
+pra ver se tem algo acumulado pra empurrar :
+git status
+
++++++++++++++++++++++++++
+gerando chave ssh no windows, no gitbash:
+
+
+ssh-keygen -t ed25519 -c seuemail@gmail.com/meunickname/email@dominio.com/meunickname/email@dominio
+
+enter file in witch to save the key: ... ./.ssh/ed25519
+
+enter passphrase:
+reenter:
+
+
+
+ls
+id_ed25519 id_ed25519.pub
+
+cat id_ed25519.pub  (essa chave publica é a que vai lá pro github )
+
+
+no cli
+eval $(ssh-agent -s)
+
+vai retornar 
+Agent pid nnnn
+
+ssh-add id_ed25519 
+Enter passfrase for id_ed25519: 
+
+
